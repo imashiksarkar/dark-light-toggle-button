@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+:root {
+  --icon-color: #000000;
+  --focus-color: #00000033;
+  --default-opacity: 0.6;
+}
+.dark {
+  --icon-color: #ffffff;
+  --focus-color: #ffffff33;
+}
+.icon-button {
+  width: 3.125rem;
+  height: 3.125rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  .icon-sun-moon {
+    opacity: var(--default-opacity);
+    fill: none;
+    .star {
+      fill: var(--icon-color);
+      transform-box: fill-box;
+      transform-origin: center;
+      transition: transform 0.6s ease-in-out;
+    }
+    .circle {
+      fill: var(--icon-color);
+      transition: transform 0.6s ease-in;
+    }
+  }
+  &:hover,
+  &:focus {
+    background-color: var(--focus-color);
+    .icon-sun-moon {
+      opacity: 1;
+    }
+  }
+}
+.dark {
+  background-color: #333;
+  .icon-button {
+    .icon-sun-moon {
+      opacity: var(--default-opacity);
+      .star {
+        fill: var(--icon-color);
+        transform: rotate(360deg);
+      }
+      .circle {
+        fill: var(--icon-color);
+        transform: translateX(-4px);
+      }
+    }
+    &:hover,
+    &:focus {
+      background-color: var(--focus-color);
+      .icon-sun-moon {
+        opacity: 1;
+      }
+    }
+  }
+}
