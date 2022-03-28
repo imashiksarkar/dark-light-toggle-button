@@ -1,11 +1,7 @@
 function main() {
-  document.querySelector(".icon-button").onclick = Utilities.handleDarkClick;
-}
-
-class Utilities {
-  static handleDarkClick() {
+  document.querySelector(".dl-toggle-button").onclick = () => {
     document.body.classList.toggle("dark");
-  }
+  };
 }
 
-window.onload = main();
+window.onload = main;

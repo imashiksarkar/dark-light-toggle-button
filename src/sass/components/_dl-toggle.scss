@@ -1,0 +1,58 @@
+:root {
+  --icon-color: 0, 0%, 0%;
+  --focus-color: 0, 0%, 0%, 0.2;
+  --background-color: 0, 0%, 100%;
+  --default-opacity: 0.6;
+  --dl-toggle-size: 3.125rem;
+  --star-rotate: 0deg;
+  --circle-position: 0rem;
+  --transition-time: 300ms;
+}
+.dark {
+  --icon-color: 0, 0%, 100%;
+  --focus-color: 0, 0%, 100%, 0.2;
+  --background-color: 0, 0%, 20%;
+  --star-rotate: 360deg;
+  --circle-position: -0.25rem;
+}
+.dl-action {
+  background-color: hsl(var(--background-color));
+  transition: background-color var(--transition-time) ease-in;
+}
+.dl-toggle-button {
+  cursor: pointer;
+  width: var(--dl-toggle-size);
+  height: var(--dl-toggle-size);
+  background: transparent;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 50%;
+  transition: background-color var(--transition-time) ease;
+  .icon-sun-moon {
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    fill: none;
+    opacity: var(--default-opacity);
+    .star {
+      fill: hsl(var(--icon-color));
+      transform: rotate(var(--star-rotate));
+      transform-box: fill-box;
+      transform-origin: center;
+      transition: transform var(--transition-time) ease-in-out;
+    }
+    .circle {
+      fill: hsl(var(--icon-color));
+      transform: translateX(var(--circle-position));
+      transition: transform var(--transition-time) ease-in;
+    }
+  }
+  &:hover,
+  &:focus {
+    --default-opacity: 1;
+    background-color: hsla(var(--focus-color));
+    .icon-sun-moon {
+      opacity: var(--default-opacity);
+    }
+  }
+}
